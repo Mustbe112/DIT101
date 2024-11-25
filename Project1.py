@@ -18,7 +18,7 @@ class Store:  #store data
         f = open("Project1.csv","a")  #File Open
         f.write(f"{self.date},{self.id},{self.name},{self.phone1},{self.phone},{self.email},"
                     f"{self.loots},{self.from1},{self.to},{self.amount}\n") #Data input
-        f.close()
+        f.close() #File Close
 
 def calculate_amount(destination, loots): #Calculate Amount
 
@@ -46,7 +46,7 @@ def Delivery(): #For Delivery Function
     Amount = 0
     Loots = 0
 
-    while True:
+    while True: #To loop when it wrongs
          to = input("Enter the City You Deliever (Bangkok and Chaing Mai): ").strip()
          available = ["Bangkok","Chaing Mai"]
          Loots = int(input("Enter Numbers of Loots : "))
@@ -57,7 +57,7 @@ def Delivery(): #For Delivery Function
          Amount = calculate_amount(to,Loots)
          break
         
-    Store(Today,ID,Name,Phone1,Phone,Email,Loots,from1,to,Amount) 
+    Store(Today,ID,Name,Phone1,Phone,Email,Loots,from1,to,Amount) #Use class Store
 
     print("------- Receipt ------- ")
     print(f"Date: {Today}")
@@ -70,13 +70,13 @@ def Delivery(): #For Delivery Function
     
 
 def Check(): #Check Receipt
-    search_name = input("Enter Name: ").strip()
+    search_name = input("Enter Name: ").strip() 
     search_id = input("Enter ID Number : ").strip()
     found = False
 
 
-    with open("Project1.csv", "r") as f:
-        lines = f.readlines()
+    with open("Project1.csv", "r") as f: #to open file
+        lines = f.readlines() #read the sentence 
         
     for line in lines:
         data = line.strip().split(',')
